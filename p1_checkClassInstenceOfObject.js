@@ -17,11 +17,10 @@ There are no constraints on the data types that can be passed to the function. F
 
 var checkIfInstanceOf = function (obj, classFunction) {
   if (obj == null || typeof classFunction !== "function") return false;
-  let proto = Object.getPrototypeOf(obj);
-
-  while (proto !== null) {
-    if (proto === classFunction.prototype) return true;
-    proto = Object.getPrototypeOf(proto);
+  let objPrototype = Object.getPrototypeOf(obj);
+  while (objPrototype !== null) {
+    if (objPrototype === classFunction.prototype) return true;
+    objPrototype = Object.getPrototypeOf(objPrototype);
   }
   return false;
 };
